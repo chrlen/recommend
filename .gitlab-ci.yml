@@ -1,0 +1,16 @@
+stages:
+  - eval
+
+services:
+  - docker:dind
+
+eval:
+  image: continuumio/anaconda
+  stage: eval
+  script:
+    - sh scripts/setup_conda_env.bash
+    - sh scripts/run_eval.bash
+  artifacts:
+    paths:
+    - models
+    - predictions

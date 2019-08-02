@@ -1,0 +1,18 @@
+IndexError: index 2094 is out of bounds for axis 0 with size 2081
+
+  File "/home/me/apps/anaconda3/envs/recommender_systems/lib/python3.7/site-packages/IPython/core/interactiveshell.py", line 3325, in run_code
+    exec(code_obj, self.user_global_ns, self.user_ns)
+  File "<ipython-input-3-e754f99221c6>", line 1, in <module>
+    runfile('/home/me/PycharmProjects/recommender_systems/train_svd.py', wdir='/home/me/PycharmProjects/recommender_systems')
+  File "/home/me/.local/share/JetBrains/Toolbox/apps/PyCharm-P/ch-0/192.5728.105/helpers/pydev/_pydev_bundle/pydev_umd.py", line 197, in runfile
+    pydev_imports.execfile(filename, global_vars, local_vars)  # execute the script
+  File "/home/me/.local/share/JetBrains/Toolbox/apps/PyCharm-P/ch-0/192.5728.105/helpers/pydev/_pydev_imps/_pydev_execfile.py", line 18, in execfile
+    exec(compile(contents+"\n", file, 'exec'), glob, loc)
+  File "/home/me/PycharmProjects/recommender_systems/train_svd.py", line 19, in <module>
+    sgd.fit(data=train)
+  File "/home/me/PycharmProjects/recommender_systems/recommend/SVDPPRecommender.py", line 162, in fit
+    e = rating - self.predict_single(user, item)
+  File "/home/me/PycharmProjects/recommender_systems/recommend/SVDPPRecommender.py", line 93, in predict_single
+    v = self.p_u[user, :] + card_N * np.sum([self.y_j[i, :] for i in N])
+IndexError: index 2094 is out of bounds for axis 0 with size 2081
+ 79%|███████▉  | 343240/434641 [51:40<14:17, 106.60it/s]

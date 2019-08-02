@@ -1,0 +1,414 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="a938f9cd-2818-45c9-be05-5d27906fcc4f" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/train_svd.py" beforeDir="false" afterPath="$PROJECT_DIR$/train_svd.py" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>self.item_means =</find>
+    </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1OdGIsEg7lUtFymh3oL0u6saLzO" />
+  <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="settings.editor.selected.configurable" value="preferences.general" />
+  </component>
+  <component name="PyConsoleOptionsProvider">
+    <option name="myPythonConsoleState">
+      <console-settings module-name="recommender_systems" is-module-sdk="true">
+        <option name="useSoftWraps" value="true" />
+        <option name="myUseModuleSdk" value="true" />
+        <option name="myModuleName" value="recommender_systems" />
+      </console-settings>
+    </option>
+    <option name="myUseExistingConsole" value="true" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Python.hyper_parameter_choice">
+    <configuration name="NMFRecommender" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="recommender_systems" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/recommend" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/recommend/NMFRecommender.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="true" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="SVDPPRecommender" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="recommender_systems" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/recommend" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/recommend/SVDPPRecommender.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="true" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="PythonConfigurationType" factoryName="Python">
+      <module name="recommender_systems" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="true" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="hyper_parameter_choice" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="recommender_systems" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/hyper_parameter_choice.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="true" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="predict_all" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="recommender_systems" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/eval.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="true" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="train_svd" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="recommender_systems" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/train_svd.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="true" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.hyper_parameter_choice" />
+        <item itemvalue="Python.train_svd" />
+        <item itemvalue="Python.SVDPPRecommender" />
+        <item itemvalue="Python.predict_all" />
+        <item itemvalue="Python.NMFRecommender" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="a938f9cd-2818-45c9-be05-5d27906fcc4f" name="Default Changelist" comment="" />
+      <created>1561034361036</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1561034361036</updated>
+      <workItem from="1561034364173" duration="354000" />
+      <workItem from="1561193477363" duration="12878000" />
+      <workItem from="1561492074026" duration="351000" />
+      <workItem from="1562784589142" duration="5922000" />
+      <workItem from="1562790539176" duration="7078000" />
+      <workItem from="1562834535469" duration="6110000" />
+      <workItem from="1562852773187" duration="15629000" />
+      <workItem from="1562920714816" duration="119000" />
+      <workItem from="1562941546579" duration="4278000" />
+      <workItem from="1562954215439" duration="871000" />
+      <workItem from="1562955118312" duration="1467000" />
+      <workItem from="1562957817136" duration="362000" />
+      <workItem from="1562961535491" duration="753000" />
+      <workItem from="1563002333473" duration="1091000" />
+      <workItem from="1563008427273" duration="15329000" />
+      <workItem from="1563047386135" duration="635000" />
+      <workItem from="1563189454076" duration="3983000" />
+      <workItem from="1563194194455" duration="7286000" />
+      <workItem from="1563212323741" duration="3328000" />
+      <workItem from="1563430978935" duration="4352000" />
+      <workItem from="1563445840377" duration="5719000" />
+      <workItem from="1563471633052" duration="4477000" />
+      <workItem from="1563530086264" duration="33000" />
+      <workItem from="1563797448317" duration="20141000" />
+      <workItem from="1563829867001" duration="5617000" />
+      <workItem from="1563860777234" duration="4661000" />
+      <workItem from="1563865483353" duration="3820000" />
+      <workItem from="1563901317289" duration="954000" />
+      <workItem from="1563976954599" duration="350000" />
+      <workItem from="1563977335342" duration="200000" />
+      <workItem from="1563977565670" duration="2842000" />
+      <workItem from="1563980625968" duration="271000" />
+      <workItem from="1564052737132" duration="794000" />
+      <workItem from="1564248847907" duration="388000" />
+      <workItem from="1564263821649" duration="167000" />
+      <workItem from="1564299992791" duration="487000" />
+      <workItem from="1564327284090" duration="11000" />
+      <workItem from="1564394975287" duration="1712000" />
+      <workItem from="1564401061155" duration="117000" />
+      <workItem from="1564418587507" duration="1401000" />
+      <workItem from="1564425113521" duration="3605000" />
+      <workItem from="1564467038740" duration="655000" />
+      <workItem from="1564468011742" duration="83000" />
+      <workItem from="1564468517749" duration="70000" />
+      <workItem from="1564468870896" duration="1011000" />
+      <workItem from="1564482752748" duration="2175000" />
+      <workItem from="1564486247176" duration="1888000" />
+      <workItem from="1564495747620" duration="5096000" />
+      <workItem from="1564518381085" duration="1320000" />
+      <workItem from="1564562182445" duration="9000" />
+      <workItem from="1564586168374" duration="1579000" />
+      <workItem from="1564640735859" duration="7503000" />
+      <workItem from="1564653322369" duration="10385000" />
+      <workItem from="1564666815459" duration="4760000" />
+      <workItem from="1564676158499" duration="15320000" />
+      <workItem from="1564700017529" duration="11403000" />
+    </task>
+    <task id="LOCAL-00001" summary="Add baseline">
+      <created>1561238748932</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1561238748932</updated>
+    </task>
+    <task id="LOCAL-00002" summary="minimal pipeline">
+      <created>1562797563642</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1562797563642</updated>
+    </task>
+    <task id="LOCAL-00003" summary="minimal pipeline">
+      <created>1562836688450</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1562836688450</updated>
+    </task>
+    <task id="LOCAL-00004" summary="change imports">
+      <created>1562847910830</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1562847910830</updated>
+    </task>
+    <task id="LOCAL-00005" summary="remove abc">
+      <created>1562852857608</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1562852857608</updated>
+    </task>
+    <task id="LOCAL-00006" summary="prepare article">
+      <created>1562874559123</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1562874559123</updated>
+    </task>
+    <task id="LOCAL-00007" summary="implement strong cross_validation">
+      <created>1562874592902</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1562874592902</updated>
+    </task>
+    <task id="LOCAL-00008" summary="restructure Recommenders">
+      <created>1562874648082</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1562874648083</updated>
+    </task>
+    <task id="LOCAL-00009" summary="begin article">
+      <created>1562874678656</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1562874678656</updated>
+    </task>
+    <task id="LOCAL-00010" summary="update workspace">
+      <created>1562874697511</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1562874697511</updated>
+    </task>
+    <task id="LOCAL-00011" summary="remove unused import">
+      <created>1563197608271</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1563197608271</updated>
+    </task>
+    <task id="LOCAL-00012" summary="add stuff">
+      <created>1563452100558</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1563452100559</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Add baseline" />
+    <MESSAGE value="minimal pipeline" />
+    <MESSAGE value="change imports" />
+    <MESSAGE value="remove abc" />
+    <MESSAGE value="prepare article" />
+    <MESSAGE value="implement strong cross_validation" />
+    <MESSAGE value="restructure Recommenders" />
+    <MESSAGE value="begin article" />
+    <MESSAGE value="update workspace" />
+    <MESSAGE value="remove unused import" />
+    <MESSAGE value="add stuff" />
+    <option name="LAST_COMMIT_MESSAGE" value="add stuff" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/recommend/SGDRecommender.py</url>
+          <line>22</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/recommend/hlp.py</url>
+          <line>189</line>
+          <option name="timeStamp" value="66" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/recommend/hlp.py</url>
+          <line>5</line>
+          <option name="timeStamp" value="162" />
+        </line-breakpoint>
+      </breakpoints>
+      <default-breakpoints>
+        <breakpoint type="python-exception">
+          <properties notifyOnTerminate="true" exception="BaseException">
+            <option name="notifyOnTerminate" value="true" />
+          </properties>
+        </breakpoint>
+      </default-breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/recommender_systems$predict_all.coverage" NAME="predict_all Coverage Results" MODIFIED="1563200534741" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/recommender_systems$SGDRecommender.coverage" NAME="SGDRecommender Coverage Results" MODIFIED="1563021564436" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/recommend" />
+    <SUITE FILE_PATH="coverage/recommender_systems$main.coverage" NAME="main Coverage Results" MODIFIED="1561206755520" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/recommend" />
+    <SUITE FILE_PATH="coverage/recommender_systems$SVDPPRecommender.coverage" NAME="SVDPPRecommender Coverage Results" MODIFIED="1564666114149" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/recommend" />
+    <SUITE FILE_PATH="coverage/recommender_systems$train_svd.coverage" NAME="train_svd Coverage Results" MODIFIED="1564726344297" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/recommender_systems$SVDRecommender.coverage" NAME="SVDRecommender Coverage Results" MODIFIED="1563434997005" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/recommend" />
+  </component>
+</project>
