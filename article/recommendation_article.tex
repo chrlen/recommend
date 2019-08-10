@@ -77,32 +77,39 @@
 \begin{document}
 	
 \section{Introduction}
-In this project we want to take a shot on writting a system that recommends items to users. 
+In this project we want to take a shot on writing a system that recommends items to users. 
 This kind of system is generally called recommendation system.
-In the vast domain of recommendation systems we specialize in the subdomain of collborative filtering.
-The is characterized by the makings of the input data. Where recommendation systems try to utilize all kinds of input data, in collborative filtering (CF) the input data only includes the user-interaction with the items in the form of ratings, as opposed to metadata, e.g. gender, country or state of residence or age.
-%A popular example for this kind of problem is the Netflix-Dataset and the respective challange.
+In the vast domain of recommendation systems we specialize in the subdomain of collaborative filtering.
 
-In this, the input data for our system takes the form of a Matrix \(I \in \mathbb{K}^{(u,i)}\) where \( \mathbb{K} \) is the space of all forms a rating can take, e.g. \( \mathbb{K} =  \{0,\dots,5\} \). This is typically an interval scale or a binary as like and dislike. Ratings 
+The is characterized by the makings of the input data. Where recommendation systems try to utilize all kinds of input data, in collaborative filtering (CF) the input data only includes the user-interaction with the items in the form of ratings, as opposed to metadata, e.g. gender, country or state of residence or age.
+%A popular example for this kind of problem is the Netflix-Dataset and the respective challenge.
+
+In this, the input data for our system takes the form of a Matrix \(I \in \mathbb{K}^{u \times i}\) where \( \mathbb{K} \) is the space of all forms a rating can take, e.g. \( \mathbb{K} =  \{0,\dots,5\} \). This is typically an interval scale or a binary as like and dislike. Ratings 
 The dimension of \(I\) are determined by the number of users \(u\) and the count of items \(i\) a user can rate. Typically this matrix is sparse as users only rate some of the items.
 
+In our case the data-set is made of a set of triples: 
+
+\begin{align*}
+    \mathcal{S} &= \{ \left( u,i,r \right) ~ \vert ~ u \in \mathbb{N}_+, i \in \mathbb{N}_+, r \in \{0,\dots, 5 \}  \}\\
+\end{align*}
+It contains 43464 ratings of 1665 distinct users on 1194 items. The highest user-id is 5499 and the highest item-id is 2080. The corresponding matrix for this set \(I \in \mathcal{K}^{5499 \times 2080}\) has about \(3\%\) entries that are not zero.
 
 
-% recommendation collborative filterign
+% recommendation collaborative filtering
 % Several approaches Neighbors factorization
 % 
 \section{Method}
-The range of types of models for CF is vast. The currently best performing models are mosty ensemble methods that combine the strengths of multiple other models. Two of the good performing simple models that are part of those ensembles are models based on matrix factorization or approaches utilizing a distance measure between items and/or users to recommend based on a neighborhood. A good overview can be found in \cite{Toescher2008}, that presentend their solution to the Netflix price challange as a large and well explained ensemble.
+The range of types of models for CF is vast. The currently best performing models are mostly ensemble methods that combine the strengths of multiple other models. Two of the good performing simple models that are part of those ensembles are models based on matrix factorization or approaches utilizing a distance measure between items and/or users to recommend based on a neighborhood. A good overview can be found in \cite{Toescher2008}, that presented their solution to the Netflix price challenge as a large and well explained ensemble.
 
 For this article we will implement a basic model that combines the strengths of neighborhood-models and matrix factorization by extending the widely known SVD++-Model. It has been proposed in \cite{Koren2008}, a researcher part of the team BelKor that won the Netflix prize.
-\subsection{Datastructures}
-The following strcutures are used to model the CF problem, where \( k \) is the number neighbors taken into account and \(f\) is the count of latent factors estimated in the training process.
+\subsection{Data Structures}
+The following structures are used to model the CF problem, where \( k \) is the number neighbors taken into account and \(f\) is the count of latent factors that get estimated in the training process.
 
 \begin{description}
     \item [\(b_{ui} = \mu + b_u + b_i\)]
     \item[\(R(u)\)] Function that delivers all items that user \(u\) rated.
     \item [\(N(u)\)] Function that gives all items that a user provided implicit feedback for.
-    \item [\(S^k(i)\)] Function that returns the set of k item most similiar to item \(i\) in terms of the slimiarity-measure \(s_{ij}\).
+    \item [\(S^k(i)\)] Function that returns the set of k item most similar to item \(i\) in terms of the similarity-measure \(s_{ij}\).
     \item [\(R^k(u)\)] Function that computes \( R(u) \cap S^k(i) \).
     \item [\(N^k(u)\)] Function that computes \( N(u) \cap S^k(i) \)
     \item [\( \mu \)] The global average of the training ratings. 
@@ -112,22 +119,22 @@ The following strcutures are used to model the CF problem, where \( k \) is the 
     \item [\( \hat{r}_{ui} \)] The estimated rating user \(u\) for item \(i\).
     \item [\( e_{ui} \)] The error of the estimation to the real rating \( r_{ui} - \hat{r}_{ui} \).
     \item [\( b_{ui} \)] The baseline estimate for a rating \(r_{ui}\) is \( \mu + b_u + b_i \)
-    \item [\( w_{ij} \)] Global user-indipendent weights for the interaction between items.
-    \item [\( c_{ij} \)] Global user-indipendent weights for implicit preference.
+    \item [\( w_{ij} \)] Global user-independent weights for the interaction between items.
+    \item [\( c_{ij} \)] Global user-independent weights for implicit preference.
     \item [\( q_i \)] A factor vector for each item.
     \item [\( p_u \)] A factor Vector for each user.
-    \item [\( s_{ij} \)] The matrix holding the similiarity between items \(i,j\).
+    \item [\( s_{ij} \)] The matrix holding the similarity between items \(i,j\).
     \item [\( n_{ij} \)] The matrix counting how many times user have rated both items \(i,j\).
-    \item [\( p_{ij} \)] The matrix holding the pearson correlation between items \(i,j\).
+    \item [\( p_{ij} \)] The matrix holding the Pearson correlation between items \(i,j\).
 \end{description}
-The neighborhood for the function \( S^k(i) \) is defined by the similiarity measure \( s_{ij} = \frac{n_{ij}}{n_{ij} + \lambda_2} \cdot p_{ij} \).
-The pearson-correlation is weighted by the count of users that rated both items \(i,j\).
+The neighborhood for the function \( S^k(i) \) is defined by the similarity measure \( s_{ij} = \frac{n_{ij}}{n_{ij} + \lambda_2} \cdot p_{ij} \).
+The Pearson-correlation is weighted by the count of users that rated both items \(i,j\).
 
-Generally other measurements for the similiarity can be used, e.g. cosine or manhattan distance.
+Generally other measurements for the similarity can be used, e.g. cosine or manhattan distance.
 
 \subsection{Prediction}
 
-The prediction for an unknown rating \(\hat{r}_{ui}\) is modelled as follows;
+The prediction for an unknown rating \(\hat{r}_{ui}\) is modeled as follows;
 
 \begin{align}
 \hat{r} &= \mu + b_u + b_i \label{bias} \\ 
@@ -137,12 +144,13 @@ The prediction for an unknown rating \(\hat{r}_{ui}\) is modelled as follows;
 \end{align} 
 
 \paragraph{User and Item properties} Term \eqref{bias} models the basic properties of users and items without interactions.
-\paragraph{User and Item Interactions} Term \eqref{ui_interact} describes the interaction between user and item factors. It represents the factorizaion part of the model.
+\paragraph{User and Item Interactions} Term \eqref{ui_interact} describes the interaction between user and item factors. It represents the factorization part of the model.
 \paragraph{Weighted nearest items} Term \eqref{rating_neighborhood} takes the nearest items into account weighted by the trained values in \( w_{ij}\).
 \paragraph{Implicit preference} Term \eqref{impl} introduces the implicit preferences.
 
 
 \subsection{Training}
+For the training we do as Koren suggests and minimize the squared error with gradient descent.
 For the training process Koren suggests the following variation of gradient descent.
 Unfortunately he objective function is non-convex, this leaves us in uncertainty about the count of (local) extrema.
 \begin{align}
@@ -163,28 +171,28 @@ Unfortunately he objective function is non-convex, this leaves us in uncertainty
 \end{align}
 
 
-The time for one iteration dependes on the count of factors to be learned. On an Intel Xeon CPU E5-2630 v2 we get roughly about processed ratings per second. A whole iteration over the dataset with 434641 ratings takes 2.414 hours. For the netflix dataset Koren suggests about 30 iterations. This leads to a training time of about three days.
+The time for one iteration depends on the count of factors to be learned. On an Intel Xeon CPU E5-2630 v2 we get roughly about processed ratings per second. A whole iteration over the dataset with 434641 ratings takes 2.414 hours. For the netflix dataset Koren suggests about 30 iterations. This leads to a training time of about three days.
 
 Potentially the training time could be reduced massively by parallelization. 
-As updates of the datastructures are applied for every training point one could partition the training set in batches and apply the updates in parallel while excluding the case of multiple threads working on the same user/item.
+As updates of the data structures are applied for every training point one could partition the training set in batches and apply the updates in parallel while excluding the case of multiple threads working on the same user/item.
 \subsection{Parameter Estimation}
 One of the hardest problems with the implementation of the Hybrid model is the large number of parameters. We have to choose values for the count of iterations and factors, as well as the eleven lambdas and gammas steering the training of our model. 
-Hyperparameter tuning is gernerally a hard problem as it is still subject to active research. 
+Hyper parameter tuning is generally a hard problem as it is still subject to active research. 
 
 We will try a rather simple ad-hoc approach and use a derivative-less optimization method on the cross-validation RMSE-error calculated on a small subset of the dataset.
 Using only a subset of the training data does not guarantee good generalization on the whole dataset, but a full training run takes days we have too use less samples to make cross-validation feasible.
 \section{Implementation}
-To ease the training and evaluation of recommender models we implement an abstract base class \texttt{Recommender} that provides the abstract function \texttt{fit} and \texttt{predict}.
-Furthmore we add a function \texttt{save} to serialize our model and save it into files.
-Given \texttt{fit} and \texttt{predict} it should be straigt forward to implement a cross validation.
+To ease the training and evaluation of recommendation models we implement an abstract base class \texttt{Recommender} that provides the abstract function \texttt{fit} and \texttt{predict}.
+Furthermorh we add a function \texttt{save} to serialize our model and save it into files.
+Given \texttt{fit} and \texttt{predict} it should be straight forward to implement a cross validation.h
 Nonetheless, in the context of recommendation systems we have to be aware of the concept of multiple ratings by the same user.
-Generally, in Machine Learning we try to predict the performance of algorithms by a strict divide between test and trainig-data.
+Generally, in Machine Learning we try to predict the performance of algorithms by a strict divide between test and training-data.
 If we have interactions of the same user in the test and in the training set, this concept is kind of broken.
 On the other hand, in this case, our algorithm performs good because of the knowledge about the user. 
 If nothing about the previous interactions of the user known, we can not take the neighborhood into account.
 In this case won't partition the set by user but in other settings it could be necessary. This concept is referred to as \emph{strong generalization} by \cite{Liang2018
 }
-We use \texttt{numpy.seterr(all='raise')} to avoid proceeding after overflows or occurences of np.nan, as choosing the wrong parameters can lead to numerical errors that we want to be aware of.
+We use \texttt{numpy.seterr(all='raise')} to avoid proceeding after overflows or occurrences of \texttt{np.nan}, as choosing the wrong parameters can lead to numerical errors that we want to be aware of.
 \printbibliography
 %\nocite{*}
 \end{document}
