@@ -3,7 +3,7 @@ import numpy as np
 import recommend as rcm
 
 np.seterr(all='raise')
-
+train, qualify = rcm.load_data_small()
 def svd_parameter(x):
     return rcm.cross_validation(
         rcm.SVDPPRecommender(
@@ -23,7 +23,7 @@ def svd_parameter(x):
                 'gamma3': x[10]
             }
         ),
-        data=rcm.load_data_small(),
+        data=train,
         err=rcm.rmse,
         split=3
     )
