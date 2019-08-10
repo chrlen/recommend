@@ -1,7 +1,9 @@
-# Byte-compiled / optimized / DLL files
+m # Byte-compiled / optimized / DLL files
 literature
 .vscode
 .idea
+notes.md
+vae
 
 __pycache__/
 *.py[cod]
