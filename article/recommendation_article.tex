@@ -107,25 +107,24 @@ The following structures are used to model the CF problem, where \( k \) is the 
 
 \begin{description}
     \item [\(b_{ui} = \mu + b_u + b_i\)]
-    \item[\(R(u)\)] Function that delivers all items that user \(u\) rated.
-    \item [\(N(u)\)] Function that gives all items that a user provided implicit feedback for.
+    \item[\(R(u)\)] Function that delivers a set of all items that user \(u\) rated.
+    \item [\(N(u)\)] Function that gives the set of all items that a user provided implicit feedback for.
     \item [\(S^k(i)\)] Function that returns the set of k item most similar to item \(i\) in terms of the similarity-measure \(s_{ij}\).
     \item [\(R^k(u)\)] Function that computes \( R(u) \cap S^k(i) \).
     \item [\(N^k(u)\)] Function that computes \( N(u) \cap S^k(i) \)
-    \item [\( \mu \)] The global average of the training ratings. 
-    \item [\( b_u \)] The observed deviations of user \(u\) from the mean.
-    \item [\( b_i \)] The observed deviations of item \(i\) from the mean.
-    \item [\( r_{ui} \)] The rating of user \(u\) for item \(i\).
-    \item [\( \hat{r}_{ui} \)] The estimated rating user \(u\) for item \(i\).
+    \item [\( \mu \in \mathbb{R}\)] The global average of the training ratings. 
+    \item [\( b_u \in \mathbb{R} \)] The observed deviations of user \(u\) from the mean.
+    \item [\( b_i \in \mathbb{R} \)] The observed deviations of item \(i\) from the mean.
+    \item [\( r_{ui} \in \mathbb{K} \)] The rating of user \(u\) for item \(i\).
+    \item [\( \hat{r}_{ui} \in \mathbb{R} \)] The estimated rating user \(u\) for item \(i\).
     \item [\( e_{ui} \)] The error of the estimation to the real rating \( r_{ui} - \hat{r}_{ui} \).
     \item [\( b_{ui} \)] The baseline estimate for a rating \(r_{ui}\) is \( \mu + b_u + b_i \)
-    \item [\( w_{ij} \)] Global user-independent weights for the interaction between items.
-    \item [\( c_{ij} \)] Global user-independent weights for implicit preference.
-    \item [\( q_i \)] A factor vector for each item.
-    \item [\( p_u \)] A factor Vector for each user.
-    \item [\( s_{ij} \)] The matrix holding the similarity between items \(i,j\).
-    \item [\( n_{ij} \)] The matrix counting how many times user have rated both items \(i,j\).
-    \item [\( p_{ij} \)] The matrix holding the Pearson correlation between items \(i,j\).
+    \item [\( w_{ij} \in \mathbb{R}^{i \times i} \)] Global user-independent weights for the interaction between items.
+    \item [\( c_{ij} \in \mathbb{R}^{i \times i}\)] Global user-independent weights for implicit preference.
+    \item [\( q_i,p_u,y_j \in \mathbb{R}^f\)] Factor vectors.
+    \item [\( s_{ij} \in \mathbb{R}^{i \times i} \)] The matrix holding the similarity between items \(i,j\).
+    \item [\( n_{ij} \in \mathbb{R}^{i \times i} \)] The matrix counting how many times user have rated both items \(i,j\).
+    \item [\( p_{ij} \in \mathbb{R}^{i \times i} \)] The matrix holding the Pearson correlation between items \(i,j\).
 \end{description}
 The neighborhood for the function \( S^k(i) \) is defined by the similarity measure \( s_{ij} = \frac{n_{ij}}{n_{ij} + \lambda_2} \cdot p_{ij} \).
 The Pearson-correlation is weighted by the count of users that rated both items \(i,j\).
@@ -137,22 +136,28 @@ Generally other measurements for the similarity can be used, e.g. cosine or manh
 The prediction for an unknown rating \(\hat{r}_{ui}\) is modeled as follows;
 
 \begin{align}
-\hat{r} &= \mu + b_u + b_i \label{bias} \\ 
+\hat{r}_{ui} &= \mu + b_u + b_i \label{bias} \\ 
         &+ q^T_i \left( p_u + \vert N(u) \vert^{-1/2} \sum\limits_{j \in N(u)} y_j \right) \label{ui_interact} \\
         &+ \vert R^k(i;u) \vert^{-1/2} \sum\limits_{j \in R^k(i;u)} \left( r_{uj} - b_{uj} \right) w_{ij} \label{rating_neighborhood}  \\
         &+ \vert N^k(i;u) \vert^{-1/2} \sum\limits_{j \in N^k(i;u) } c_{ij} \label{impl}
 \end{align} 
 
-\paragraph{User and Item properties} Term \eqref{bias} models the basic properties of users and items without interactions.
-\paragraph{User and Item Interactions} Term \eqref{ui_interact} describes the interaction between user and item factors. It represents the factorization part of the model.
-\paragraph{Weighted nearest items} Term \eqref{rating_neighborhood} takes the nearest items into account weighted by the trained values in \( w_{ij}\).
-\paragraph{Implicit preference} Term \eqref{impl} introduces the implicit preferences.
+\paragraph{User and Item properties} Term \eqref{bias} models the basic properties of users and items without interactions as a sum of the global average \(\mu\), a user-bias \(b_u\) and an item-bias \(b_i\).
+\paragraph{User and Item Interactions} Term \eqref{ui_interact} describes the interaction between user and item factors. It represents the factorization part of the model. To the user-profile-factor \(p_u\) the sum over the factors associated with the items implicitly rated by the user is added. 
+\paragraph{Weighted nearest items} Term \eqref{rating_neighborhood} 
+adds the sum over the nearest neighbors weighted by the global item-interaction weights.
+\paragraph{Implicit preference} Term \eqref{impl} introduces the implicit preferences. For the nearest neighbors we add all user-independent weights from \(c_{ij}\).
 
 
 \subsection{Training}
 For the training we do as Koren suggests and minimize the squared error with gradient descent.
-For the training process Koren suggests the following variation of gradient descent.
-Unfortunately he objective function is non-convex, this leaves us in uncertainty about the count of (local) extrema.
+
+\begin{align}    
+    \min \sum\limits_{ (u,i,r) \in \mathcal{S} } \left( r_{ui} - \hat{r}_{ui} \right)^2 \nonumber 
+\end{align}
+
+From the partial derivatives the following updates follow:
+
 \begin{align}
         b_u &\leftarrow b_u + \gamma_1 \cdot \left( e_{ui} - \lambda_6 \cdot b_u \right)  \nonumber\\
         b_i &\leftarrow b_i + \gamma_1 \cdot \left( e_{ui} - \lambda_6 \cdot b_i \right)  \nonumber\\
