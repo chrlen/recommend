@@ -8,3 +8,4 @@ from recommend.SGDRecommender import SGDRecommender
 from recommend.ClassRecommender import ClassRecommender
 from recommend.ArgmaxRecommender import ArgmaxRecommender
 from recommend.SVDPPRecommender import SVDPPRecommender
+from recommend.UnconstrainedMFRecommender import UnconstrainedMFRecommender

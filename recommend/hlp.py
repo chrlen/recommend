@@ -30,8 +30,8 @@ def load_qualifying_data():
 
 
 def to_sparse_matrix(train):
-    n_cols = np.max(train[:, 1]) + 1
-    n_rows = np.max(train[:, 0]) + 1
+    n_cols = np.max(train[:, 1]) +1
+    n_rows = np.max(train[:, 0]) +1
     sparse = sps.coo_matrix(
         ((train[:, 2], (train[:, 0], train[:, 1]))),
         shape=(n_rows, n_cols)
@@ -116,7 +116,7 @@ def strong_cross_validation(model, data, split=10, err=rmse, random_state=np.ran
     return np.mean(results)
 
 
-def cross_validation(model, data, split=10, err=rmse, random_state=np.random.RandomState(), verbose=False):
+def cross_validation(model, data, split=10, err=rmse, random_state=np.random.RandomState(), verbose=True):
 
     split = np.array_split(
         data,
@@ -147,6 +147,8 @@ def cross_validation(model, data, split=10, err=rmse, random_state=np.random.Ran
         it.repeat(err, len(split)))
 
     results = list(map(eval, pairs))
+    if verbose:
+        print(results)
     err = np.mean(results)
     if verbose:
         print(err)
