@@ -1,0 +1,87 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel} % for german specs \selectlanguage{<english?>}
+\usepackage{amsmath}		% common math symbols
+\usepackage{amssymb}		% common symbols
+\usepackage[autostyle]{csquotes}
+\usepackage{marvosym}		% even more symbols
+\usepackage[top=2.7cm,bottom=4.5cm,left=2.5cm,right=2cm,headsep=1.0cm,headheight=100pt]{geometry}
+
+
+
+\usepackage{marvosym}		% even more symbols
+\usepackage{tabto}		% better alignment with \tapto{<length>}
+\usepackage{xcolor}		% colorize text with \color{<color>}{text}
+				% and \definecolor{<name>}{RGB}{<255?,127?,0?>}
+\usepackage{listings-ext}	% \lstdefinestyle{<name>}{
+				%  backgroundcolor=\color{gray!10}
+				% }
+\usepackage{enumerate}		% customize lists
+\usepackage{paralist}		% smaller lists with compactitem
+\usepackage{booktabs}		% for much better looking tables
+\usepackage{graphicx}		% insert pictures
+\usepackage{caption}		% show captions under the pictures
+\usepackage{ifpdf}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{tikz}
+\usepackage{wrapfig}
+
+\usepackage[hidelinks]{hyperref}% customize links
+\hypersetup{colorlinks=false,pdfborder={0 0 0}}
+\definecolor{dgreen}{RGB}{100,180,50}
+\definecolor{sgreen}{RGB}{133,153,0}
+\definecolor{sred}{RGB}{220,50,47}
+\definecolor{br-solar}{RGB}{253,246,227}
+\usepackage[bottom]{footmisc}	% begin footnotes at bottom of page
+
+
+\usepackage[
+    backend=biber,
+    style=authoryear-icomp,
+    sortlocale=de_DE,
+    natbib=true,
+    url=false, 
+    doi=true,
+    eprint=false
+]{biblatex}
+\addbibresource{references.bib}
+
+
+\title{Collaborative Filtering}
+\author{Christian Lengert}
+\date{\today}
+\usepackage{fancyhdr}		% fancy header
+\pagestyle{fancy}
+\makeatletter
+\let\runauthor\@author
+\let\runtitle\@title
+\let\rundate\@date
+\makeatother
+\lhead[\runtitle]{\runtitle}
+\chead{}
+\rhead[]{\rundate \\ \runauthor \\ \thepage}
+\lfoot[]{} \cfoot[]{} \rfoot[]{}
+\ifpdf
+	\pdfinfo {
+		/Author (Chrstian Lengert, christian.lengert@tuta.io)
+		/Title (Simple Factorization Recommender)
+		/Subject ()
+		/Keywords ()
+		/Producer ()
+		/Creator (Awesome Creator)
+		/CreationDate (D:20121213120000)
+	}
+\fi
+
+\begin{document}
+\section*{Prediction}
+
+\begin{align*}
+	\hat{r}(u,i) = q^T p
+\end{align*}
+	\section*{Training}
+	\begin{align*}
+		q_{i+1}  = - \partial  
+	\end{align*}
+\end{document}

@@ -67,16 +67,17 @@ class UnconstrainedMFRecommender(rcm.Recommender):
             self.V = self.V + self.alpha * E.T.dot(temp_U)
 
             if self.iterations >= self.max_it:
+                print("Maximum iterations reached")
                 self.converged = True
 
             if self.iterations > 0:
-                diff = self.last_e - self.this_e
+                diff = np.abs(self.last_e - self.this_e)
                 if diff < 0.001:
+                    print("Low Error difference! Finished: ", diff)
                     self.converged = True
             self.last_e = self.this_e
             self.iterations +=1
         self.reconstruction = self.U.dot(self.V.T)
-
 
 if __name__ == '__main__':
     import os
