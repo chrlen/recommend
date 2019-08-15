@@ -11,8 +11,8 @@ class UnconstrainedMFRecommender(rcm.Recommender):
         rcm.Recommender.__init__(self, "umf", **kwargs)
         self.converged = False
         self.factors = kwargs.get('k', 10)
-        self.max_it = kwargs.get('max_it', 100)
-        self.alpha = kwargs.get('alpha', 0.0001)
+        self.max_it = kwargs.get('max_it', np.inf)
+        self.alpha = kwargs.get('alpha', 0.001)
         self.verbose = kwargs.get('verbose',True)
 
     def predict_single(self, user, item):
@@ -75,7 +75,6 @@ class UnconstrainedMFRecommender(rcm.Recommender):
                     self.converged = True
             self.last_e = self.this_e
             self.iterations +=1
-        #print("Done!")
         self.reconstruction = self.U.dot(self.V.T)
 
 
