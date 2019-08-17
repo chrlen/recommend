@@ -8,7 +8,7 @@ np.seterr(all='raise')
 train = rcm.load_data()
 qualify = rcm.load_qualifying_data()
 
-lambdas = [10 ** i for i in np.arange(0.001, 100)]
+lambdas = [ 10**n for n in range(-2, 2) ]
 
 nmf = rcm.UnconstrainedRegularisedMFRecommender(
     **{
