@@ -14,18 +14,20 @@ nmf = rcm.UnconstrainedRegularisedMFRecommender(
     **{
         'max_it': np.inf,
         'verbose': False
+        'lambda0': 0.01
     }
 )
-pred_err = [
-    rcm.cross_validation(model=rcm.UnconstrainedRegularisedMFRecommender(
-        **{
-            'max_it': np.inf,
-            'verbose': False,
-            'lambda0': l,
-            'convergence_error': 0.001
-        }
-    ), data=train, err=rcm.rmse) for l in lambdas
-]
+
+#pred_err = [
+#    rcm.cross_validation(model=rcm.UnconstrainedRegularisedMFRecommender(
+#        **{
+#            'max_it': np.inf,
+#            'verbose': False,
+#            'lambda0': l,
+#            'convergence_error': 0.001
+#        }
+#    ), data=train, err=rcm.rmse) for l in lambdas
+#]
 
 nmf.fit(data=train)
 best_model_prediction = nmf.predict(data=qualify).reshape((-1, 1)) - 1
