@@ -14,7 +14,7 @@ nmf = rcm.UnconstrainedRegularisedMFRecommender(
     **{
         'max_it': np.inf,
         'verbose': True,
-        'lambda0': 0.01
+        'lambda0': 0.001
     }
 )
 
