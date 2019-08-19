@@ -13,7 +13,7 @@ lambdas = [ 10**n for n in range(-2, 2) ]
 nmf = rcm.UnconstrainedRegularisedMFRecommender(
     **{
         'max_it': np.inf,
-        'verbose': False,
+        'verbose': True,
         'lambda0': 0.01
     }
 )
