@@ -8,7 +8,7 @@ import scipy.sparse.linalg as spsl
 class UnconstrainedMFRecommender(rcm.Recommender):
     """  """
     def __init__(self, **kwargs):
-        rcm.Recommender.__init__(self, "umf", **kwargs)
+        rcm.Recommender.__init__(self, "urmf", **kwargs)
         self.converged = False
         self.factors = kwargs.get('k', 10)
         self.max_it = kwargs.get('max_it', np.inf)
